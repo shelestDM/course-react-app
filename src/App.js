@@ -1,6 +1,10 @@
-import CostList from "./components/CostList";
+import CostList from "./components/Costs/CostList";
+import NewCost from "./components/NewCost/NewCost";
+import { useState } from "react";
 
-const costs = [
+const App = () => {
+
+  const [costs, setCosts] = useState([
     {
       date: new Date(),
       title: 'MacBook',
@@ -16,11 +20,21 @@ const costs = [
       title: 'Jeans',
       amount: '20'
     }
-  ]
+  ]);
+  console.log(costs);
 
- function App() {
+  const addCostToCostListHandler = (cost) => {
+    console.log('in App Component', cost);
+    setCosts((previousCost)=>{
+      return [...previousCost, cost];
+    })
+  }
+
   return (
+    <div>
+      <NewCost addCostToCostListHandler={addCostToCostListHandler} />
       <CostList costs={costs} />
+    </div>
   );
 }
 
