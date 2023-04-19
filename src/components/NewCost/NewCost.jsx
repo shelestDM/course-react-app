@@ -4,7 +4,6 @@ const NewCost = (props) => {
 
     const getFormData = (costData) =>{
         props.addCostToCostListHandler(costData);
-        console.log(costData);
     }
 
     return (
