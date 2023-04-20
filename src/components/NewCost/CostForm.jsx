@@ -36,11 +36,13 @@ const CostForm = (props) => {
     const submitCostFormHandler = (event) =>{
         event.preventDefault();
         const generatedCostData = {
+            id: new Date().toISOString(),
             date: new Date(costData.date),
             title: costData.title,
             amount: costData.amount
         }
         props.onGetFormData(generatedCostData);
+        props.onInverseFlagHandler();
         setCostData(()=>{
            return{
             title: '',
@@ -82,13 +84,19 @@ const CostForm = (props) => {
                 onInput={getDateHandler} 
                 className="text-black rounded-lg px-2 py-1" 
                 type="date" 
-                min='2023-01-01'/>
+                min='2021-01-01'
+                />
             </div>
-            <div>
+            <div className="flex gap-5">
                 <button 
                 type="submit"
                 className="text-white bg-[#4caf50] py-2 px-3 rounded-lg hover:bg-[#198754] active:scale-[0.9]"
                 >Add cost</button>
+                <button 
+                onClick={props.onInverseFlagHandler}
+                type="button"
+                className="text-white bg-[#f44336] py-2 px-3 rounded-lg hover:bg-[#ff1744] active:scale-[0.9]"
+                >Cancel</button>
             </div>
         </form>
     );
