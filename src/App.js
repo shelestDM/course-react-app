@@ -8,7 +8,7 @@ const App = () => {
   const [costs, setCosts] = useState([
     {
       id: 'item_1',
-      date: new Date("2022-05-22"),
+      date: new Date("2022-06-22"),
       title: 'MacBook',
       amount: '1200'
     },
@@ -20,7 +20,7 @@ const App = () => {
     },
     {
       id: 'item_3',
-      date: new Date("2023-05-22"),
+      date: new Date("2023-02-22"),
       title: 'Jeans',
       amount: '20'
     }
